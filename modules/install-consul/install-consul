@@ -116,8 +116,9 @@ function install_dependencies {
 
   if $(has_apt_get); then
     sudo apt-get update -y
-    sudo apt-get install -y azure-cli curl unzip jq
+    sudo apt-get install -y curl unzip jq
     install_supervisord_debian
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
   elif $(has_yum); then
     sudo yum update -y
     sudo yum install -y azure-cli curl unzip jq
